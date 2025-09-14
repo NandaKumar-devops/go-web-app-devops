@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"nginx.ingress.kubernetes.io/rewrite-target":"/home"},"creationTimestamp":"2025-09-14T14:08:18Z","generation":1,"name":"go-web-app","namespace":"default","resourceVersion":"51992","uid":"58aec391-5e4b-407a-b96f-4ab59ca4309e"},"spec":{"ingressClassName":"nginx","rules":[{"host":"go-web-app.local","http":{"paths":[{"backend":{"service":{"name":"go-web-app","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]},"status":{"loadBalancer":{"ingress":[{"hostname":"a09824faddd434ad6925546b42c2933e-7567411ccc5a2699.elb.us-east-1.amazonaws.com"}]}}}
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  creationTimestamp: "2025-09-14T14:08:18Z"
+  generation: 1
+  name: go-web-app
+  namespace: default
+  resourceVersion: "55242"
+  uid: 58aec391-5e4b-407a-b96f-4ab59ca4309e
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: go-web-app.local
+    http:
+      paths:
+      - backend:
+          service:
+            name: go-web-app
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+status:
+  loadBalancer:
+    ingress:
+    - hostname: a09824faddd434ad6925546b42c2933e-7567411ccc5a2699.elb.us-east-1.amazonaws.com
